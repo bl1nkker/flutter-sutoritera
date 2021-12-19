@@ -19,13 +19,14 @@ class UserDao extends ChangeNotifier {
   }
 
   // Pass in the email and password the user entered. For a real app, you will need to make sure those strings meet your requirements.
-  void signup(String email, String password) async {
+  void signup(String email, String password, Function goToHomePage) async {
     try {
       // Call the Firebase method to create a new account.
       await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      goToHomePage();
       // Notify all listeners so they can then check when a user is logged in.
       notifyListeners();
     } on FirebaseAuthException catch (e) {
@@ -42,13 +43,14 @@ class UserDao extends ChangeNotifier {
   }
 
   // Pass in the email and password the user entered.
-  void login(String email, String password) async {
+  void login(String email, String password, Function goToHomePage) async {
     try {
       // Call the Firebase method to log in to their account.
       await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      goToHomePage();
       // Notify all listeners.
       notifyListeners();
     } on FirebaseAuthException catch (e) {

@@ -45,7 +45,12 @@ class _StoriesScreenState extends State<StoriesScreen> {
     // Create a new message from the given snapshot.
     final story = Story.fromSnapshot(snapshot);
     // Pass the message info to the MessageWidget.
-    return Text(story.title);
+    return Column(
+      children: [
+        Text(story.creatorName),
+        Text(story.title),
+      ],
+    );
   }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {

@@ -108,11 +108,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Provider.of<AppStateManager>(context, listen: false)
-                            .login('mockUsername', 'mockPassword');
                         // Set the first button to call the login() method.
-                        // userDao.login(
-                        //     _emailController.text, _passwordController.text);
+                        userDao.login(
+                            _emailController.text, _passwordController.text,
+                            () {
+                          Provider.of<AppStateManager>(context, listen: false)
+                              .login(_emailController.text,
+                                  _passwordController.text);
+                        });
                       },
                       child: const Text('Login'),
                     ),
@@ -127,7 +130,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         // Set the second button to call the signup() method.
                         userDao.signup(
-                            _emailController.text, _passwordController.text);
+                            _emailController.text, _passwordController.text,
+                            () {
+                          Provider.of<AppStateManager>(context, listen: false)
+                              .login(_emailController.text,
+                                  _passwordController.text);
+                        });
                       },
                       child: const Text('Sign Up'),
                     ),
