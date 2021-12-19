@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1079670150240",
+    "project_id": "flutter-sutoritera",
+    "storage_bucket": "flutter-sutoritera.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079670150240:android:cd690babceb15240091f05",
+        "android_client_info": {
+          "package_name": "com.sutoritera.flutter_sutoritera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079670150240-531rpao3kln50esgdmdcn5mnt6d5s9pc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO_VQP8V7D-ZNSc5FWLSXwrHdggY4XTJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079670150240-531rpao3kln50esgdmdcn5mnt6d5s9pc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

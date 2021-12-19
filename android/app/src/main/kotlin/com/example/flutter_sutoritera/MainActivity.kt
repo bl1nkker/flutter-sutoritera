@@ -1,4 +1,4 @@
-package com.example.flutter_sutoritera
+package com.sutoritera.flutter_sutoritera
 
 import io.flutter.embedding.android.FlutterActivity
 
