@@ -59,19 +59,4 @@ class _StoriesScreenState extends State<StoriesScreen> {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.only(top: 20.0));
   }
-
-  // Create new story
-//   void _sendMessage(StoryDao storyDao) {
-//   if (_canSendMessage()) {
-//     final message = Story(
-//       text: _messageController.text,
-//       date: DateTime.now(),
-//       // TODO: add email
-//     );
-//     storyDao.saveMessage(message);
-//     _messageController.clear();
-//     setState(() {});
-//   }
-// }
-
 }
