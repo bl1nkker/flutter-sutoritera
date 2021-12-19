@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sutoritera/data/user_dao.dart';
 import 'package:flutter_sutoritera/models/app_state_manager.dart';
 import 'package:flutter_sutoritera/navigation/sutoritera_pages.dart';
+import 'package:flutter_sutoritera/screens/create_story_screen.dart';
+import 'package:flutter_sutoritera/screens/profile_screen.dart';
 import 'package:flutter_sutoritera/screens/stories_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +32,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
     StoriesScreen(),
-    // TODO: Add profile screen
+    CreateStoryScreen(),
+    ProfileScreen()
   ];
 
   @override
@@ -59,12 +62,12 @@ class _HomeState extends State<Home> {
                 label: 'Explore',
               ),
               const BottomNavigationBarItem(
-                icon: Icon(Icons.book),
-                label: 'Recipes',
+                icon: Icon(Icons.add_a_photo_outlined),
+                label: 'Create',
               ),
               const BottomNavigationBarItem(
                 icon: Icon(Icons.list),
-                label: 'To Buy',
+                label: 'Profile',
               ),
             ],
           ),
