@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Creates constants for each tab the user taps.
 class SutoriteraTab {
@@ -15,6 +16,7 @@ class AppStateManager extends ChangeNotifier {
   bool _loggedIn = false;
   // _selectedTab keeps track of which tab the user is on.
   int _selectedTab = SutoriteraTab.explore;
+  bool _darkMode = false;
 
   // These are getter methods for each property.
   //You cannot change these properties outside AppStateManager.
@@ -22,12 +24,16 @@ class AppStateManager extends ChangeNotifier {
   //change state directly but only via function calls or dispatched events.
   bool get isInitialized => _initialized;
   bool get isLoggedIn => _loggedIn;
+  bool get isDarkMode => _darkMode;
   int get getSelectedTab => _selectedTab;
-
-  void initializeApp() {
+  late SharedPreferences _pref;
+  void initializeApp() async {
     // Sets a delayed timer for 2,000 milliseconds before executing the closure.
     //This sets how long the app screen will display after the user starts the
     //app.
+    _pref = await SharedPreferences.getInstance();
+    _darkMode = _pref.getBool('darkMode') ?? false;
+
     Timer(
       const Duration(milliseconds: 2000),
       () {
@@ -37,6 +43,11 @@ class AppStateManager extends ChangeNotifier {
         notifyListeners();
       },
     );
+  }
+
+  void changeTheme() {
+    _darkMode = !_darkMode;
+    _pref.setBool("darkMode", _darkMode);
   }
 
   void login(String username, String password) {

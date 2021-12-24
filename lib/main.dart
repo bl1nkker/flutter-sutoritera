@@ -3,7 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_sutoritera/data/user_dao.dart';
 import 'package:flutter_sutoritera/models/app_state_manager.dart';
 import 'package:flutter_sutoritera/navigation/app_router.dart';
+import 'package:flutter_sutoritera/sutoritera_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../data/story_dao.dart';
 
 Future<void> main() async {
@@ -55,12 +57,12 @@ class _SutoriteraState extends State<Sutoritera> {
       ],
       child: Consumer<UserDao>(
         builder: (context, profileManager, child) {
-          // ThemeData theme;
-          // if (profileManager.darkMode) {
-          //   theme = FooderlichTheme.dark();
-          // } else {
-          //   theme = FooderlichTheme.light();
-          // }
+          ThemeData theme;
+          if (Provider.of<AppStateManager>(context, listen: false).isDarkMode) {
+            theme = SutoriteraTheme.dark();
+          } else {
+            theme = SutoriteraTheme.light();
+          }
 
           return MaterialApp(
             // theme: theme,

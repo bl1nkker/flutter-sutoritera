@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sutoritera/data/story.dart';
 import 'package:flutter_sutoritera/data/story_dao.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_sutoritera/widgets/story_card.dart';
 import 'package:provider/provider.dart';
 
 class StoriesScreen extends StatefulWidget {
@@ -45,12 +46,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
     // Create a new message from the given snapshot.
     final story = Story.fromSnapshot(snapshot);
     // Pass the message info to the MessageWidget.
-    return Column(
-      children: [
-        Text(story.creatorName),
-        Text(story.title),
-      ],
-    );
+    return StoryCard(story: story);
   }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {

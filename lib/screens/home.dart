@@ -30,11 +30,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static List<Widget> pages = <Widget>[
-    StoriesScreen(),
-    CreateStoryScreen(),
-    ProfileScreen()
-  ];
+  static List<Widget> pages = <Widget>[StoriesScreen(), CreateStoryScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +38,17 @@ class _HomeState extends State<Home> {
       builder: (context, appStateManager, child) {
         return Scaffold(
           appBar: AppBar(
+            actions: [
+              InkWell(
+                onTap: () {
+                  Provider.of<AppStateManager>(context, listen: false)
+                      .changeTheme();
+                },
+                child: Text('Change theme'),
+              )
+            ],
             title: Text(
-              'Fooderlich',
+              'Sutoritera App',
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
@@ -64,11 +69,7 @@ class _HomeState extends State<Home> {
               const BottomNavigationBarItem(
                 icon: Icon(Icons.add_a_photo_outlined),
                 label: 'Create',
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.list),
-                label: 'Profile',
-              ),
+              )
             ],
           ),
         );
